@@ -1,9 +1,6 @@
 import streamlit as st
-pip uninstall openai
+import openai
 
-pip install --upgrade pip
-
-pip install openai
 
 
 st.sidebar.header("Chatbot Settings")
