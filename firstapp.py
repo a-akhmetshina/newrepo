@@ -2,9 +2,11 @@ import streamlit as st
 from openai import OpenAI
 
 
+client = OpenAI(
+  api_key=os.environ['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'],  # this is also the default, it can be omitted
+)
 
 st.sidebar.header("Chatbot Settings")
-openai_api_key = st.sidebar.text_input("OpenAI API Key", key="chatbot_api_key", type="password", value='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')
 
 st.title("💬 Chatbot")
 
@@ -19,7 +21,7 @@ if prompt := st.chat_input():
         st.info("Please add your OpenAI API key to continue.")
         st.stop()
 
-    openai.api_key = openai_api_key
+    openai.api_key = api_key
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
