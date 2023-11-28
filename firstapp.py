@@ -1,5 +1,11 @@
 import streamlit as st
-import openai 
+pip uninstall openai
+
+pip install --upgrade pip
+
+pip install openai
+
+
 st.sidebar.header("Chatbot Settings")
 openai_api_key = st.sidebar.text_input("OpenAI API Key", key="chatbot_api_key", type="password", value='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')
 
